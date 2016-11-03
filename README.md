@@ -1,1 +1,1 @@
-# -B2B-TraidingPlatform
+# -B2B-TradingPlatform
