@@ -1,0 +1,25 @@
+{
+  "name": "b2b-tradingplatform",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/client/main.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sekar005/-B2B-TradingPlatform.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sekar005/-B2B-TradingPlatform/issues"
+  },
+  "homepage": "https://github.com/sekar005/-B2B-TradingPlatform#readme",
+  "devDependencies": {
+    "webpack": "^1.13.3"
+  }
+}
