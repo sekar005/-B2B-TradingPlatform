@@ -7,7 +7,7 @@ module.exports = webpackMerge(commonConfig, {
 		new webpack.NoErrorsPlugin(),
 		new webpack.optimize.OccurrenceOrderPlugin(),
 		new webpack.DefinePlugin({'process.env': { 
-			'NODE_ENV': ‚“development“‘,
+			'NODE_ENV': '"development"',
 			'API_SERVER_URL':'"http://localhost:3000"'
 		}}),
 		new webpack.optimize.UglifyJsPlugin(),
