@@ -1,0 +1,14 @@
+Team 1 (Hendrik & Sebastian):
+ - Login
+ - Registrierung
+ - Firmenprofil
+ - Warenkorb
+ - Anzeigen
+
+Team 2 (Corinna & Tim):
+ - Template
+ - Benutzerprofil
+ - Bestellung
+ - Firmensuche
+ - Produktsuche
+ - Produktprofil
