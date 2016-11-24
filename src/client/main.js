@@ -1,8 +1,15 @@
-var apiUrl = process.env.API_SERVER_URL;
-var environment = process.env.NODE_ENV;
-document.write(apiUrl + ' ' + environment);
-function test() {
-	let a = 2 ** 3;
-	console.log(a);
-}
-test();
+import React from 'react';
+import ReactDOM from 'react-dom';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import MyAwesomeReactComponent from './MyAwesomeReactComponent';
+
+const App = () => (
+  <MuiThemeProvider>
+    <MyAwesomeReactComponent />
+  </MuiThemeProvider>
+);
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('app')
+);
