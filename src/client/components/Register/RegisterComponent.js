@@ -5,10 +5,11 @@ import React from 'react';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 const styles = {
     paper: {
-        height: 250,
+        height: 500,
         width: 400,
         margin: 20,
         textAlign: 'center',
@@ -21,16 +22,19 @@ const styles = {
         fontSize: 24,
         paddingTop: 16,
         marginBottom: 12,
-        textAlign: 'center',
         fontWeight: 400
+    },
+    center: {
+        textAlign: 'center'
     }
 };
 
-class RegisterComponent extends React.Component {
+export default React.createClass({
 
     render() {
         return (
-        <div>
+            <MuiThemeProvider>
+        <div style={styles.center}>
             <h2 style={styles.headline}>B2B</h2>
             <Paper style={styles.paper} zDepth={1}>
                 <TextField
@@ -62,8 +66,7 @@ class RegisterComponent extends React.Component {
                 <RaisedButton label="Registrieren" style={styles.button} />
             </Paper>
         </div>
+            </MuiThemeProvider>
         );
     }
-}
-
-export default RegisterComponent;
+})

@@ -1,23 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import LoginComponent from './Login/LoginComponent';
-import RegisterComponent from './Register/RegisterComponent';
-import { default as Router, Route } from 'react-router'
+import { render } from 'react-dom';
+import LoginComponent from './components/Login/LoginComponent';
+import RegisterComponent from './components/Register/RegisterComponent';
+import { Router, Route, hashHistory } from 'react-router'
 
-const App = () => (
-  <MuiThemeProvider>
-    <LoginComponent />
-  </MuiThemeProvider>
-);
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('app')
-);
-
-ReactDOM.render((
-    <Router>
+render((
+    <Router history={hashHistory}>
         <Route path="/" component={LoginComponent} />
         <Route path="/register" component={RegisterComponent} />
     </Router>

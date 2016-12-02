@@ -6,6 +6,7 @@ import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Link } from 'react-router';
 
 const styles = {
@@ -18,14 +19,25 @@ const styles = {
     },
     button: {
         margin: 12
+    },
+    headline: {
+        fontSize: 24,
+        paddingTop: 16,
+        marginBottom: 12,
+        fontWeight: 400
+    },
+    center: {
+        textAlign: 'center'
     }
 };
 
-class LoginComponent extends React.Component {
+export default React.createClass({
 
     render() {
         return (
-        <div>
+            <MuiThemeProvider>
+        <div style={styles.center}>
+            <h2 style={styles.headline}>B2B</h2>
             <Paper style={styles.paper} zDepth={1}>
                 <TextField
                     hintText="Email Adresse"
@@ -36,12 +48,12 @@ class LoginComponent extends React.Component {
                     floatingLabelText="Passwort"
                     type="password"
                 /><br/>
-                <FlatButton label="Registrieren" primary={true} />
+                <FlatButton label="Registrieren" containerElement={<Link to="/register" />}
+                            linkButton={true} primary={true} />
                 <RaisedButton label="Login" style={styles.button} />
             </Paper>
         </div>
+            </MuiThemeProvider>
         );
     }
-}
-
-export default LoginComponent;
+})
