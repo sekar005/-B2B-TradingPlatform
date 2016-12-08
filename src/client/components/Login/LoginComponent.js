@@ -50,7 +50,8 @@ export default React.createClass({
                 /><br/>
                 <FlatButton label="Registrieren" containerElement={<Link to="/register" />}
                             linkButton={true} primary={true} />
-                <RaisedButton label="Login" style={styles.button} />
+                <RaisedButton label="Login" style={styles.button} containerElement={<Link to="/viewCompany" />}
+                              linkButton={true}/>
             </Paper>
         </div>
             </MuiThemeProvider>
