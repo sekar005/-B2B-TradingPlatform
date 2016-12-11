@@ -22,7 +22,8 @@ const styles = {
     },
     button: {
         margin: 12,
-        textAlign: 'left'
+        textAlign: 'right',
+        float : 'right'
     },
     headline: {
         fontSize: 24,
@@ -34,11 +35,15 @@ const styles = {
     center: {
         textAlign: 'center'
     },
+    left: {
+        textAlign: 'left'
+    },
     icon: {
         textAlign: 'right'
     },
     picture: {
-        textAlign: 'left'
+        textAlign: 'left',
+        float : 'left'
     }
 };
 
@@ -49,9 +54,19 @@ export default React.createClass({
             <MuiThemeProvider>
 
                 <div>
-                    <div style={styles.picture}>//bild</div>
-                    <div style={styles.center}><p></p></div>
-                    <RaisedButton label="Bearbeiten" style={styles.button} />
+                    <div style={styles.picture}><img src="img/ExampleImage.png" /></div>
+                    <div style={styles.center}>
+                        <p>Firmenname: Musterfirma</p>
+                        <p>Branche: Metall</p>
+                        <p>Adresse: Musterstr. 1, 12345 Musterhausen</p>
+                        <p>Email: mail@firma.de</p>
+                        <p>Telefon: 12345/6789</p>
+                        <p>Fax: 12345/6789</p>
+                        <p>Webseite: http://www.musterfirma.de</p>
+                    </div>
+                    <div style={styles.button}>
+                        <RaisedButton label="Bearbeiten" />
+                    </div>
                     <div>
                         <h2 style={styles.headline}>Produkte</h2>
                         <AddCircle style={styles.icon} color={red500} />
