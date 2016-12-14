@@ -4,13 +4,17 @@ import LoginComponent from './components/Login/LoginComponent';
 import RegisterComponent from './components/Register/RegisterComponent';
 import ViewCompanyComponent from './components/CompanyProfile/ViewCompanyProfile/ViewCompanyComponent';
 import CartComponent from './components/Cart/CartComponent';
-import { Router, Route, hashHistory } from 'react-router'
+import TemplateComponent from './components/Template/TemplateComponent';
+import { Router, Route, hashHistory, Redirect } from 'react-router'
 
 render((
     <Router history={hashHistory}>
-        <Route path="/" component={LoginComponent} />
+        <Redirect from="/" to="/login" />
+        <Route path="/login" component={LoginComponent} />
         <Route path="/register" component={RegisterComponent} />
-        <Route path="/viewCompany" component={ViewCompanyComponent} />
-        <Route path="/cart" component={CartComponent} />
+        <Route path="/template" component={TemplateComponent}>
+            <Route path="/viewCompany" component={ViewCompanyComponent} />
+            <Route path="/cart" component={CartComponent} />
+        </Route>
     </Router>
 ), document.getElementById('app'));

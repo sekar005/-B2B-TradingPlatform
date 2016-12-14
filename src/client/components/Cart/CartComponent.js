@@ -2,15 +2,10 @@
  * Created by Sebastian Karrie on 08.12.2016.
  */
 import React from 'react';
-import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
-import AddCircle from 'material-ui/svg-icons/content/add-circle';
-import {red500, yellow500, blue500} from 'material-ui/styles/colors';
-import { Link } from 'react-router';
 import ActionHighlightOff from 'material-ui/svg-icons/action/highlight-off';
 
 const styles = {
@@ -48,12 +43,11 @@ const styles = {
     }
 };
 
-export default React.createClass({
+export default class CartComponent extends React.Component{
 
     render() {
         return (
             <MuiThemeProvider>
-
                 <div>
                     <div>
                         <h2 style={styles.headline}>Warenkorb</h2>
@@ -75,7 +69,7 @@ export default React.createClass({
                                     </TableRowColumn>
                                     <TableRowColumn>Metall</TableRowColumn>
                                     <TableRowColumn>5€</TableRowColumn>
-                                    <TableRowColumn><input type="number" value="0"/> <ActionHighlightOff/></TableRowColumn>
+                                    <TableRowColumn><input type="number" min="0" defaultValue={0}/> <ActionHighlightOff/></TableRowColumn>
                                 </TableRow>
                             </TableBody>
                         </Table>
@@ -87,4 +81,4 @@ export default React.createClass({
             </MuiThemeProvider>
         );
     }
-})
+}

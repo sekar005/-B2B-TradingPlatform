@@ -2,15 +2,12 @@
  * Created by Sebastian Karrie on 08.12.2016.
  */
 import React from 'react';
-import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 import AddCircle from 'material-ui/svg-icons/content/add-circle';
-import {red500, yellow500, blue500} from 'material-ui/styles/colors';
-import { Link } from 'react-router';
+import {red500} from 'material-ui/styles/colors';
 
 const styles = {
     paper: {
@@ -47,7 +44,7 @@ const styles = {
     }
 };
 
-export default React.createClass({
+export default class ViewCompanyComponent extends React.Component{
 
     render() {
         return (
@@ -97,4 +94,4 @@ export default React.createClass({
             </MuiThemeProvider>
         );
     }
-})
+}

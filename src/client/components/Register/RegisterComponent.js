@@ -5,6 +5,7 @@ import React from 'react';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
+import { Link } from 'react-router';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 const styles = {
@@ -29,7 +30,7 @@ const styles = {
     }
 };
 
-export default React.createClass({
+export default class RegisterComponent extends React.Component{
 
     render() {
         return (
@@ -63,10 +64,11 @@ export default React.createClass({
                     floatingLabelText="Passwort wiederholen"
                     type="password"
                 /><br/>
-                <RaisedButton label="Registrieren" style={styles.button} />
+                <RaisedButton label="Registrieren" style={styles.button} containerElement={<Link to="/login" />}
+                              linkButton={true} primary={true}/>
             </Paper>
         </div>
             </MuiThemeProvider>
         );
     }
-})
+}

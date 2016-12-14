@@ -31,7 +31,7 @@ const styles = {
     }
 };
 
-export default React.createClass({
+export default class LoginComponent extends React.Component{
 
     render() {
         return (
@@ -57,4 +57,4 @@ export default React.createClass({
             </MuiThemeProvider>
         );
     }
-})
+}
