@@ -69,7 +69,7 @@ export default class CartComponent extends React.Component{
                                     </TableRowColumn>
                                     <TableRowColumn>Metall</TableRowColumn>
                                     <TableRowColumn>5€</TableRowColumn>
-                                    <TableRowColumn><input type="number" min="0" defaultValue={0}/> <ActionHighlightOff/></TableRowColumn>
+                                    <TableRowColumn><input type="number" min="1" defaultValue={1}/> <ActionHighlightOff/></TableRowColumn>
                                 </TableRow>
                             </TableBody>
                         </Table>
