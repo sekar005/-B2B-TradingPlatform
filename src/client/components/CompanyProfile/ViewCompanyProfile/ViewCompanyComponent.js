@@ -68,8 +68,8 @@ export default class ViewCompanyComponent extends React.Component{
                         <h2 style={styles.headline}>Produkte</h2>
                         <AddCircle style={styles.icon} color={red500} />
                         <Table>
-                            <TableHeader>
-                                <TableRow displayRowCheckbox="false">
+                            <TableHeader displaySelectAll={false}>
+                                <TableRow>
                                     <TableHeaderColumn>Bild</TableHeaderColumn>
                                     <TableHeaderColumn>Produkt</TableHeaderColumn>
                                     <TableHeaderColumn>Kategorie</TableHeaderColumn>
@@ -77,8 +77,8 @@ export default class ViewCompanyComponent extends React.Component{
                                     <TableHeaderColumn>Aktionen</TableHeaderColumn>
                                 </TableRow>
                             </TableHeader>
-                            <TableBody>
-                                <TableRow displayRowCheckbox="false">
+                            <TableBody displayRowCheckbox={false}>
+                                <TableRow>
                                     <TableRowColumn></TableRowColumn>
                                     <TableRowColumn>
                                         <FlatButton label="Produkt 1"  primary={true} />
