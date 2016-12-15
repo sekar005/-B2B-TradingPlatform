@@ -9,7 +9,7 @@ const styles = {
     }
 }
 
-export default class ViewUserProfile extends React.Component{
+export default class ViewProductProfile extends React.Component{
     render() {
         return (
             <MuiThemeProvider>

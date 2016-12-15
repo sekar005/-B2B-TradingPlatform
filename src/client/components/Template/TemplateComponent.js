@@ -57,6 +57,7 @@ export default class TemplateComponent extends React.Component {
                                 hintText="Produkte"
                                 floatingLabelText="Suche"
                             />
+                            <Link to="/productSearch"><img src="src/images/search_grey_18x18.png" /></Link>
                             <Link to="/cart"><ActionShoppingCart /></Link>
                             <Link to="/login"><ActionPowerSettingsNew /></Link>
                         </ToolbarGroup>
