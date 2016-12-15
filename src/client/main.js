@@ -8,6 +8,7 @@ import TemplateComponent from './components/Template/TemplateComponent';
 import ViewUserProfile from './components/UserProfile/ViewUserProfile/ViewUserProfile';
 import { Router, Route, hashHistory, browserHistory, Redirect } from 'react-router'
 import AddProductComponent from './components/CompanyProfile/AddProductDialog/AddProductComponent';
+import AddAdvertisementComponent from './components/Advertisement/AddAdvertisementDialog/AddAdvertisementComponent';
 
 render((
     <Router history={hashHistory}>
@@ -19,6 +20,7 @@ render((
             <Route path="/addProduct" component={AddProductComponent} />
             <Route path="/cart" component={CartComponent} />
             <Route path="/viewUserProfile" component={ViewUserProfile} />
+            <Route path="/addAdvertisement" component={AddAdvertisementComponent} />
         </Route>
     </Router>
 ), document.getElementById('app'));
