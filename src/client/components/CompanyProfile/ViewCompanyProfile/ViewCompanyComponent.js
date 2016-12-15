@@ -4,11 +4,14 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
+import IconButton from 'material-ui/IconButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 import AddCircle from 'material-ui/svg-icons/content/add-circle';
+import ActionDelete from 'material-ui/svg-icons/action/delete';
 import {red500} from 'material-ui/styles/colors';
 import { Link } from 'react-router';
+import Dialog from 'material-ui/Dialog';
 
 const styles = {
     paper: {
@@ -47,7 +50,32 @@ const styles = {
 
 export default class ViewCompanyComponent extends React.Component{
 
+    state = {
+        open: false,
+    };
+
+    handleOpen = () => {
+        this.setState({open: true});
+    };
+
+    handleClose = () => {
+        this.setState({open: false});
+    };
+
     render() {
+        const actions = [
+            <FlatButton
+                label="Abbrechen"
+                primary={true}
+                onClick={this.handleClose}
+            />,
+            <FlatButton
+                label="Löschen"
+                primary={true}
+                onClick={this.handleClose}
+            />,
+        ];
+
         return (
             <MuiThemeProvider>
 
@@ -63,7 +91,7 @@ export default class ViewCompanyComponent extends React.Component{
                         <p>Webseite: http://www.musterfirma.de</p>
                     </div>
                     <div style={styles.button}>
-                        <RaisedButton label="Bearbeiten" />
+                        <RaisedButton label="Bearbeiten"/>
                     </div>
                     <div>
                         <h2 style={styles.headline}>Produkte</h2>
@@ -86,11 +114,23 @@ export default class ViewCompanyComponent extends React.Component{
                                     </TableRowColumn>
                                     <TableRowColumn>Metall</TableRowColumn>
                                     <TableRowColumn>5€</TableRowColumn>
-                                    <TableRowColumn></TableRowColumn>
+                                    <TableRowColumn>
+                                        <IconButton tooltip="SVG Icon" onClick={this.handleOpen}>
+                                            <ActionDelete />
+                                        </IconButton>
+                                    </TableRowColumn>
                                 </TableRow>
                             </TableBody>
                         </Table>
                     </div>
+
+                    <Dialog
+                        title="Löschen"
+                        actions={actions}
+                        modal={true}
+                        open={this.state.open}>
+                        Produkt wirklich löschen?
+                    </Dialog>
                 </div>
             </MuiThemeProvider>
         );
