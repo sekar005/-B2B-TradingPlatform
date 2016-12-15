@@ -37,6 +37,10 @@ const styles = {
     center: {
         textAlign: 'center'
     },
+    justify: {
+        textAlign: 'justify',
+        marginLeft: 300
+    },
     left: {
         textAlign: 'left'
     },
@@ -82,7 +86,7 @@ export default class ViewCompanyComponent extends React.Component{
 
                 <div>
                     <div style={styles.picture}><img src="src/images/profile-icon.png" width="100px"/></div>
-                    <div style={styles.center}>
+                    <div style={styles.justify}>
                         <p>Firmenname: Musterfirma</p>
                         <p>Branche: Metall</p>
                         <p>Adresse: Musterstr. 1, 12345 Musterhausen</p>
