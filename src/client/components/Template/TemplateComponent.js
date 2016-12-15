@@ -6,11 +6,12 @@ import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Toolbar, ToolbarGroup, ToolbarTitle} from 'material-ui/Toolbar';
-import SelectField from 'material-ui/SelectField';
+import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import { Link } from 'react-router';
 import ActionPowerSettingsNew from 'material-ui/svg-icons/action/power-settings-new';
 import ActionShoppingCart from 'material-ui/svg-icons/action/shopping-cart';
+import ActionSearch from 'material-ui/svg-icons/action/search';
 
 const styles = {
     adArea: {
@@ -23,9 +24,12 @@ var AdvertisementArea = require('../Advertisement/AdvertisementArea/Advertisemen
 
 export default class TemplateComponent extends React.Component {
 
-    state = {
-        value: 1,
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: 1,
+        };
+    }
 
 
     handleChange = (event, index, value) => this.setState({value});
@@ -35,7 +39,7 @@ export default class TemplateComponent extends React.Component {
              <div>
                  <MuiThemeProvider>
                     <Toolbar>
-                        <ToolbarGroup>
+                        <ToolbarGroup firstChild={true}>
                             <ToolbarTitle text="B2B" />
                             <FlatButton label="Mein Profil" containerElement={<Link to="/viewUserProfile" />}
                                         linkButton={true} primary={true} />
@@ -43,21 +47,19 @@ export default class TemplateComponent extends React.Component {
                                         linkButton={true} primary={true} />
                             <FlatButton label="Anzeige aufgeben" containerElement={<Link to="/addAdvertisement" />}
                                         linkButton={true} primary={true} />
+                            <FlatButton label="Meine Angebote" containerElement={<Link to="/offers" />}
+                                        linkButton={true} primary={true} />
                         </ToolbarGroup>
-                        <ToolbarGroup>
-                            <SelectField
-                                floatingLabelText="Kategorie"
-                                value={this.state.value}
-                                onChange={this.handleChange}
-                            >
+                        <ToolbarGroup lastChild={true}>
+                            <DropDownMenu value={this.state.value} onChange={this.handleChange}>
                                 <MenuItem value={1} primaryText="Produkte" />
                                 <MenuItem value={2} primaryText="Bestellungen" />
-                            </SelectField>
+                            </DropDownMenu>
                             <TextField
                                 hintText="Produkte"
                                 floatingLabelText="Suche"
                             />
-                            <Link to="/productSearch"><img src="src/images/search_grey_18x18.png" /></Link>
+                            <Link to="/productSearch"><ActionSearch /></Link>
                             <Link to="/cart"><ActionShoppingCart /></Link>
                             <Link to="/login"><ActionPowerSettingsNew /></Link>
                         </ToolbarGroup>

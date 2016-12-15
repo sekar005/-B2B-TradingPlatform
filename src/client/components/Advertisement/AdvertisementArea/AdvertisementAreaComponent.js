@@ -50,7 +50,7 @@ export default class AddAdvertisementComponent extends React.Component{
             <MuiThemeProvider>
                 <div style={styles.root}>
                     <GridList
-                        cellHeight={180}
+                        cellHeight={100}
                         style={styles.gridList}
                     >
                         <Subheader>Anzeigen</Subheader>

@@ -113,7 +113,7 @@ export default class ViewCompanyComponent extends React.Component{
                             </TableHeader>
                             <TableBody displayRowCheckbox={false}>
                                 <TableRow>
-                                    <TableRowColumn></TableRowColumn>
+                                    <TableRowColumn><img src="src/images/ExampleImage.png" width="100px"/></TableRowColumn>
                                     <TableRowColumn>
                                         <FlatButton label="Produkt 1"  primary={true} />
                                     </TableRowColumn>

@@ -9,12 +9,14 @@ import ViewUserProfile from './components/UserProfile/ViewUserProfile/ViewUserPr
 import EditUserProfile from './components/UserProfile/EditUserProfile/EditUserProfile';
 import ViewProductProfile from './components/ProductProfile/ViewProductProfile/ViewProductProfile';
 import ProductSearch from './components/ProductSearch/ProductSearch';
-import { Router, Route, hashHistory, browserHistory, Redirect } from 'react-router'
+import { Router, Route, hashHistory, Redirect } from 'react-router'
 import AddProductComponent from './components/CompanyProfile/AddProductDialog/AddProductComponent';
 import EditProductComponent from './components/CompanyProfile/EditProductDialog/EditProductComponent';
 import AddAdvertisementComponent from './components/Advertisement/AddAdvertisementDialog/AddAdvertisementComponent';
 import AdvertisementDetailsComponent from './components/Advertisement/AdvertisementDetails/AdvertisementDetailsComponent';
 import ReactOnAdvertisementcomponent from './components/Advertisement/ReactOnAdvertisementDialog/ReactOnAdvertisementComponent';
+import OfferListComponent from './components/Advertisement/OfferList/OfferListComponent';
+import ReactOnOfferComponent from './components/Advertisement/ReactOnOfferDialog/ReactOnOfferComponent';
 
 render((
     <Router history={hashHistory}>
@@ -33,6 +35,8 @@ render((
             <Route path="/addAdvertisement" component={AddAdvertisementComponent} />
             <Route path="/adDetails" component={AdvertisementDetailsComponent} />
             <Route path="/adReact" component={ReactOnAdvertisementcomponent} />
+            <Route path="/offers" component={OfferListComponent} />
+            <Route path="/reactOffer" component={ReactOnOfferComponent} />
         </Route>
     </Router>
 ), document.getElementById('app'));

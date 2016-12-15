@@ -49,33 +49,31 @@ export default class CartComponent extends React.Component{
         return (
             <MuiThemeProvider>
                 <div>
-                    <div>
-                        <h2 style={styles.headline}>Warenkorb</h2>
-                        <Table>
-                            <TableHeader displaySelectAll={false}>
-                                <TableRow>
-                                    <TableHeaderColumn>Bild</TableHeaderColumn>
-                                    <TableHeaderColumn>Produkt</TableHeaderColumn>
-                                    <TableHeaderColumn>Kategorie</TableHeaderColumn>
-                                    <TableHeaderColumn>Preis</TableHeaderColumn>
-                                    <TableHeaderColumn>Bestellen</TableHeaderColumn>
-                                </TableRow>
-                            </TableHeader>
-                            <TableBody displayRowCheckbox={false}>
-                                <TableRow>
-                                    <TableRowColumn></TableRowColumn>
-                                    <TableRowColumn>
-                                        <FlatButton label="Produkt 1"  primary={true} />
-                                    </TableRowColumn>
-                                    <TableRowColumn>Metall</TableRowColumn>
-                                    <TableRowColumn>5€</TableRowColumn>
-                                    <TableRowColumn><input type="number" min="1" defaultValue={1}/> <ActionHighlightOff/></TableRowColumn>
-                                </TableRow>
-                            </TableBody>
-                        </Table>
-                        <div style={styles.button}>
-                            <RaisedButton label="Bestellen" />
-                        </div>
+                    <h2 style={styles.headline}>Warenkorb</h2>
+                    <Table>
+                        <TableHeader displaySelectAll={false}>
+                            <TableRow>
+                                <TableHeaderColumn>Bild</TableHeaderColumn>
+                                <TableHeaderColumn>Produkt</TableHeaderColumn>
+                                <TableHeaderColumn>Kategorie</TableHeaderColumn>
+                                <TableHeaderColumn>Preis</TableHeaderColumn>
+                                <TableHeaderColumn>Bestellen</TableHeaderColumn>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody displayRowCheckbox={false}>
+                            <TableRow>
+                                <TableRowColumn><img src="src/images/ExampleImage.png" width="100px"/></TableRowColumn>
+                                <TableRowColumn>
+                                    <FlatButton label="Produkt 1"  primary={true} />
+                                </TableRowColumn>
+                                <TableRowColumn>Metall</TableRowColumn>
+                                <TableRowColumn>5€</TableRowColumn>
+                                <TableRowColumn><input type="number" min="1" defaultValue={1}/> <ActionHighlightOff/></TableRowColumn>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
+                    <div style={styles.button}>
+                        <RaisedButton label="Bestellen" />
                     </div>
                 </div>
             </MuiThemeProvider>

@@ -31,7 +31,7 @@ const styles = {
     }
 };
 
-export default class ReactOnAdvertisementComponent extends React.Component{
+export default class ReactOnOfferComponent extends React.Component{
 
     render() {
         return (
@@ -52,10 +52,12 @@ export default class ReactOnAdvertisementComponent extends React.Component{
                     multiLine={true}
                     rows={6}
                     rowsMax={6}
+                    disabled={true}
+                    value={'Ein extrem langer Testtext.'}
                 /><br />
-                <RaisedButton label="Abbrechen" containerElement={<Link to="/adDetails" />}
+                <RaisedButton label="Ablehnen" containerElement={<Link to="/offers" />}
                             linkButton={true} primary={true} />
-                <RaisedButton label="Angebot senden" style={styles.button} containerElement={<Link to="/viewCompany" />}
+                <RaisedButton label="Annehmen" style={styles.button} containerElement={<Link to="/offers" />}
                               linkButton={true}/>
             </Paper>
         </div>
