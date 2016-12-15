@@ -52,7 +52,7 @@ export default class ViewCompanyComponent extends React.Component{
             <MuiThemeProvider>
 
                 <div>
-                    <div style={styles.picture}><img src="img/ExampleImage.png" /></div>
+                    <div style={styles.picture}><img src="src/images/profile-icon.png" width="100px"/></div>
                     <div style={styles.center}>
                         <p>Firmenname: Musterfirma</p>
                         <p>Branche: Metall</p>
