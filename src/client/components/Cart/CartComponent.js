@@ -52,8 +52,8 @@ export default class CartComponent extends React.Component{
                     <div>
                         <h2 style={styles.headline}>Warenkorb</h2>
                         <Table>
-                            <TableHeader>
-                                <TableRow displayRowCheckbox="false">
+                            <TableHeader displaySelectAll={false}>
+                                <TableRow>
                                     <TableHeaderColumn>Bild</TableHeaderColumn>
                                     <TableHeaderColumn>Produkt</TableHeaderColumn>
                                     <TableHeaderColumn>Kategorie</TableHeaderColumn>
@@ -61,8 +61,8 @@ export default class CartComponent extends React.Component{
                                     <TableHeaderColumn>Bestellen</TableHeaderColumn>
                                 </TableRow>
                             </TableHeader>
-                            <TableBody>
-                                <TableRow displayRowCheckbox="false">
+                            <TableBody displayRowCheckbox={false}>
+                                <TableRow>
                                     <TableRowColumn></TableRowColumn>
                                     <TableRowColumn>
                                         <FlatButton label="Produkt 1"  primary={true} />
