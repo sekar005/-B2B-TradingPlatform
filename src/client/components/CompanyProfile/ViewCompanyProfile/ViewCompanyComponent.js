@@ -8,6 +8,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 import AddCircle from 'material-ui/svg-icons/content/add-circle';
 import {red500} from 'material-ui/styles/colors';
+import { Link } from 'react-router';
 
 const styles = {
     paper: {
@@ -51,7 +52,7 @@ export default class ViewCompanyComponent extends React.Component{
             <MuiThemeProvider>
 
                 <div>
-                    <div style={styles.picture}><img src="img/ExampleImage.png" /></div>
+                    <div style={styles.picture}><img src="src/images/profile-icon.png" width="100px"/></div>
                     <div style={styles.center}>
                         <p>Firmenname: Musterfirma</p>
                         <p>Branche: Metall</p>
@@ -66,7 +67,7 @@ export default class ViewCompanyComponent extends React.Component{
                     </div>
                     <div>
                         <h2 style={styles.headline}>Produkte</h2>
-                        <AddCircle style={styles.icon} color={red500} />
+                        <Link to="/addProduct"><AddCircle style={styles.icon} color={red500} /></Link>
                         <Table>
                             <TableHeader displaySelectAll={false}>
                                 <TableRow>

@@ -10,6 +10,7 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import { Link } from 'react-router';
 import ActionPowerSettingsNew from 'material-ui/svg-icons/action/power-settings-new';
+import ActionShoppingCart from 'material-ui/svg-icons/action/shopping-cart';
 
 export default class TemplateComponent extends React.Component {
 
@@ -26,7 +27,7 @@ export default class TemplateComponent extends React.Component {
                     <Toolbar>
                         <ToolbarGroup>
                             <ToolbarTitle text="B2B" />
-                            <FlatButton label="Mein Profil" containerElement={<Link to="/viewCompany" />}
+                            <FlatButton label="Mein Profil" containerElement={<Link to="/viewUserProfile" />}
                                         linkButton={true} primary={true} />
                             <FlatButton label="Firmenprofil" containerElement={<Link to="/viewCompany" />}
                                         linkButton={true} primary={true} />
@@ -46,6 +47,7 @@ export default class TemplateComponent extends React.Component {
                                 hintText="Produkte"
                                 floatingLabelText="Suche"
                             />
+                            <Link to="/cart"><ActionShoppingCart /></Link>
                             <Link to="/login"><ActionPowerSettingsNew /></Link>
                         </ToolbarGroup>
                     </Toolbar>

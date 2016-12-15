@@ -5,7 +5,9 @@ import RegisterComponent from './components/Register/RegisterComponent';
 import ViewCompanyComponent from './components/CompanyProfile/ViewCompanyProfile/ViewCompanyComponent';
 import CartComponent from './components/Cart/CartComponent';
 import TemplateComponent from './components/Template/TemplateComponent';
-import { Router, Route, hashHistory, Redirect } from 'react-router'
+import ViewUserProfile from './components/UserProfile/ViewUserProfile/ViewUserProfile';
+import { Router, Route, hashHistory, browserHistory, Redirect } from 'react-router'
+import AddProductComponent from './components/CompanyProfile/AddProductDialog/AddProductComponent';
 
 render((
     <Router history={hashHistory}>
@@ -14,7 +16,9 @@ render((
         <Route path="/register" component={RegisterComponent} />
         <Route path="/template" component={TemplateComponent}>
             <Route path="/viewCompany" component={ViewCompanyComponent} />
+            <Route path="/addProduct" component={AddProductComponent} />
             <Route path="/cart" component={CartComponent} />
+            <Route path="/viewUserProfile" component={ViewUserProfile} />
         </Route>
     </Router>
 ), document.getElementById('app'));
