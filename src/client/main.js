@@ -6,6 +6,9 @@ import ViewCompanyComponent from './components/CompanyProfile/ViewCompanyProfile
 import CartComponent from './components/Cart/CartComponent';
 import TemplateComponent from './components/Template/TemplateComponent';
 import ViewUserProfile from './components/UserProfile/ViewUserProfile/ViewUserProfile';
+import EditUserProfile from './components/UserProfile/EditUserProfile/EditUserProfile';
+import ViewProductProfile from './components/ProductProfile/ViewProductProfile/ViewProductProfile';
+import ProductSearch from './components/ProductSearch/ProductSearch';
 import { Router, Route, hashHistory, browserHistory, Redirect } from 'react-router'
 import AddProductComponent from './components/CompanyProfile/AddProductDialog/AddProductComponent';
 import EditProductComponent from './components/CompanyProfile/EditProductDialog/EditProductComponent';
@@ -24,6 +27,9 @@ render((
             <Route path="/editProduct" component={EditProductComponent} />
             <Route path="/cart" component={CartComponent} />
             <Route path="/viewUserProfile" component={ViewUserProfile} />
+            <Route path="/editUserProfile" component={EditUserProfile} />
+            <Route path="/viewProductProfile" component={ViewProductProfile} />
+            <Route path="/productSearch" component={ProductSearch} />
             <Route path="/addAdvertisement" component={AddAdvertisementComponent} />
             <Route path="/adDetails" component={AdvertisementDetailsComponent} />
             <Route path="/adReact" component={ReactOnAdvertisementcomponent} />
