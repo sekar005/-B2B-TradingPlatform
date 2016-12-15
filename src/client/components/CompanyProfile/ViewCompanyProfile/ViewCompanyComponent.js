@@ -8,6 +8,7 @@ import IconButton from 'material-ui/IconButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 import AddCircle from 'material-ui/svg-icons/content/add-circle';
+import ContentCreate from 'material-ui/svg-icons/content/create';
 import ActionDelete from 'material-ui/svg-icons/action/delete';
 import {red500} from 'material-ui/styles/colors';
 import { Link } from 'react-router';
@@ -118,6 +119,11 @@ export default class ViewCompanyComponent extends React.Component{
                                         <IconButton tooltip="SVG Icon" onClick={this.handleOpen}>
                                             <ActionDelete />
                                         </IconButton>
+                                        <Link to="/editProduct">
+                                            <IconButton tooltip="SVG Icon">
+                                                <ContentCreate />
+                                            </IconButton>
+                                        </Link>
                                     </TableRowColumn>
                                 </TableRow>
                             </TableBody>

@@ -8,6 +8,7 @@ import TemplateComponent from './components/Template/TemplateComponent';
 import ViewUserProfile from './components/UserProfile/ViewUserProfile/ViewUserProfile';
 import { Router, Route, hashHistory, browserHistory, Redirect } from 'react-router'
 import AddProductComponent from './components/CompanyProfile/AddProductDialog/AddProductComponent';
+import EditProductComponent from './components/CompanyProfile/EditProductDialog/EditProductComponent';
 import AddAdvertisementComponent from './components/Advertisement/AddAdvertisementDialog/AddAdvertisementComponent';
 
 render((
@@ -18,6 +19,7 @@ render((
         <Route path="/template" component={TemplateComponent}>
             <Route path="/viewCompany" component={ViewCompanyComponent} />
             <Route path="/addProduct" component={AddProductComponent} />
+            <Route path="/editProduct" component={EditProductComponent} />
             <Route path="/cart" component={CartComponent} />
             <Route path="/viewUserProfile" component={ViewUserProfile} />
             <Route path="/addAdvertisement" component={AddAdvertisementComponent} />
