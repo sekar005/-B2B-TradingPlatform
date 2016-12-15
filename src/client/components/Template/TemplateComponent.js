@@ -26,7 +26,7 @@ export default class TemplateComponent extends React.Component {
                     <Toolbar>
                         <ToolbarGroup>
                             <ToolbarTitle text="B2B" />
-                            <FlatButton label="Mein Profil" containerElement={<Link to="/viewCompany" />}
+                            <FlatButton label="Mein Profil" containerElement={<Link to="/viewUserProfile" />}
                                         linkButton={true} primary={true} />
                             <FlatButton label="Firmenprofil" containerElement={<Link to="/viewCompany" />}
                                         linkButton={true} primary={true} />
