@@ -10,6 +10,7 @@ import { Router, Route, hashHistory, browserHistory, Redirect } from 'react-rout
 import AddProductComponent from './components/CompanyProfile/AddProductDialog/AddProductComponent';
 import AddAdvertisementComponent from './components/Advertisement/AddAdvertisementDialog/AddAdvertisementComponent';
 import AdvertisementDetailsComponent from './components/Advertisement/AdvertisementDetails/AdvertisementDetailsComponent';
+import ReactOnAdvertisementcomponent from './components/Advertisement/ReactOnAdvertisementDialog/ReactOnAdvertisementComponent';
 
 render((
     <Router history={hashHistory}>
@@ -23,6 +24,7 @@ render((
             <Route path="/viewUserProfile" component={ViewUserProfile} />
             <Route path="/addAdvertisement" component={AddAdvertisementComponent} />
             <Route path="/adDetails" component={AdvertisementDetailsComponent} />
+            <Route path="/adReact" component={ReactOnAdvertisementcomponent} />
         </Route>
     </Router>
 ), document.getElementById('app'));

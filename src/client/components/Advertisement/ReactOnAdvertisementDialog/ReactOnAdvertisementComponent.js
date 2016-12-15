@@ -31,7 +31,7 @@ const styles = {
     }
 };
 
-export default class AdvertisementDetailsComponent extends React.Component{
+export default class AddAdvertisementComponent extends React.Component{
 
     render() {
         return (
@@ -46,17 +46,17 @@ export default class AdvertisementDetailsComponent extends React.Component{
                     value={'Anzeige 1'}
                 /><br/>
                 <FlatButton label="Händler" containerElement={<Link to="/viewCompany" />}
-                              linkButton={true} primary={true} /> <br/>
+                            linkButton={true} primary={true} /> <br/>
                 <TextField
-                    hintText="Anzeigentext"
+                    hintText="Angebotstext"
                     multiLine={true}
                     rows={6}
                     rowsMax={6}
-                    disabled={true}
-                    value={'Ein extrem langer Testtext.'}
                 /><br />
-                <RaisedButton label="Reagieren" containerElement={<Link to="/adReact" />}
+                <RaisedButton label="Abbrechen" containerElement={<Link to="/adDetails" />}
                             linkButton={true} primary={true} />
+                <RaisedButton label="Angebot senden" style={styles.button} containerElement={<Link to="/viewCompany" />}
+                              linkButton={true}/>
             </Paper>
         </div>
             </MuiThemeProvider>
