@@ -24,22 +24,22 @@ const tilesData = [
     {
         img: 'src/images/ExampleImage.png',
         title: 'Anzeige 1',
-        detailLink: '/login',
+        detailLink: '/adDetails',
     },
     {
         img: 'src/images/ExampleImage.png',
         title: 'Anzeige 2',
-        detailLink: '/login',
+        detailLink: '/adDetails',
     },
     {
         img: 'src/images/ExampleImage.png',
         title: 'Anzeige 3',
-        detailLink: '/login',
+        detailLink: '/adDetails',
     },
     {
         img: 'src/images/ExampleImage.png',
         title: 'Anzeige 4',
-        detailLink: '/login',
+        detailLink: '/adDetails',
     },
 ];
 
