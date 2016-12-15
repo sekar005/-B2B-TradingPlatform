@@ -12,11 +12,21 @@ import { Link } from 'react-router';
 import ActionPowerSettingsNew from 'material-ui/svg-icons/action/power-settings-new';
 import ActionShoppingCart from 'material-ui/svg-icons/action/shopping-cart';
 
+const styles = {
+    adArea: {
+        textAlign: 'right',
+        float : 'right'
+    }
+};
+
+var AdvertisementArea = require('../Advertisement/AdvertisementArea/AdvertisementAreaComponent').default;
+
 export default class TemplateComponent extends React.Component {
 
     state = {
         value: 1,
     };
+
 
     handleChange = (event, index, value) => this.setState({value});
 
@@ -31,7 +41,7 @@ export default class TemplateComponent extends React.Component {
                                         linkButton={true} primary={true} />
                             <FlatButton label="Firmenprofil" containerElement={<Link to="/viewCompany" />}
                                         linkButton={true} primary={true} />
-                            <FlatButton label="Anzeige aufgeben" containerElement={<Link to="/viewCompany" />}
+                            <FlatButton label="Anzeige aufgeben" containerElement={<Link to="/addAdvertisement" />}
                                         linkButton={true} primary={true} />
                         </ToolbarGroup>
                         <ToolbarGroup>
@@ -52,6 +62,7 @@ export default class TemplateComponent extends React.Component {
                         </ToolbarGroup>
                     </Toolbar>
                  </MuiThemeProvider>
+                 <div style={styles.adArea}> <AdvertisementArea/></div>
                  {this.props.children}
                 </div>
 
