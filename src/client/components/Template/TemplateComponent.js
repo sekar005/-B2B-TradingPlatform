@@ -12,6 +12,7 @@ import { Link } from 'react-router';
 import ActionPowerSettingsNew from 'material-ui/svg-icons/action/power-settings-new';
 import ActionShoppingCart from 'material-ui/svg-icons/action/shopping-cart';
 import ActionSearch from 'material-ui/svg-icons/action/search';
+import ActionPageView from 'material-ui/svg-icons/action/pageview'
 
 const styles = {
     adArea: {
@@ -60,6 +61,7 @@ export default class TemplateComponent extends React.Component {
                                 floatingLabelText="Suche"
                             />
                             <Link to="/productSearch"><ActionSearch /></Link>
+                            <Link to="/companySearch"><ActionPageView/></Link>
                             <Link to="/cart"><ActionShoppingCart /></Link>
                             <Link to="/login"><ActionPowerSettingsNew /></Link>
                         </ToolbarGroup>

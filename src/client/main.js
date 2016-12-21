@@ -9,6 +9,7 @@ import ViewUserProfile from './components/UserProfile/ViewUserProfile/ViewUserPr
 import EditUserProfile from './components/UserProfile/EditUserProfile/EditUserProfile';
 import ViewProductProfile from './components/ProductProfile/ViewProductProfile/ViewProductProfile';
 import ProductSearch from './components/ProductSearch/ProductSearch';
+import CompanySearch from './components/CompanySearch/CompanySearch'
 import { Router, Route, hashHistory, Redirect } from 'react-router'
 import AddProductComponent from './components/CompanyProfile/AddProductDialog/AddProductComponent';
 import EditProductComponent from './components/CompanyProfile/EditProductDialog/EditProductComponent';
@@ -32,6 +33,7 @@ render((
             <Route path="/editUserProfile" component={EditUserProfile} />
             <Route path="/viewProductProfile" component={ViewProductProfile} />
             <Route path="/productSearch" component={ProductSearch} />
+            <Route path="/companySearch" component={CompanySearch}/>
             <Route path="/addAdvertisement" component={AddAdvertisementComponent} />
             <Route path="/adDetails" component={AdvertisementDetailsComponent} />
             <Route path="/adReact" component={ReactOnAdvertisementcomponent} />
