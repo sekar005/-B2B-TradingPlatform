@@ -18,6 +18,8 @@ import AdvertisementDetailsComponent from './components/Advertisement/Advertisem
 import ReactOnAdvertisementcomponent from './components/Advertisement/ReactOnAdvertisementDialog/ReactOnAdvertisementComponent';
 import OfferListComponent from './components/Advertisement/OfferList/OfferListComponent';
 import ReactOnOfferComponent from './components/Advertisement/ReactOnOfferDialog/ReactOnOfferComponent';
+import IncomingOrder from './components/Order/IncomingOrder/IncomingOrder'
+import OutgoingOrder from './components/Order/OutgoingOrder/OutgoingOrder'
 
 render((
     <Router history={hashHistory}>
@@ -39,6 +41,8 @@ render((
             <Route path="/adReact" component={ReactOnAdvertisementcomponent} />
             <Route path="/offers" component={OfferListComponent} />
             <Route path="/reactOffer" component={ReactOnOfferComponent} />
+            <Route path="/incomingOrder" component={IncomingOrder}/>
+            <Route path="/outgoingOrder" component={OutgoingOrder}/>
         </Route>
     </Router>
 ), document.getElementById('app'));

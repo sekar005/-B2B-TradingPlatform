@@ -1,38 +1,40 @@
-import React from 'react'
+import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Link } from 'react-router';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
-import CommunicationEmail from 'material-ui/svg-icons/communication/email'
+import OrderDetails from '../OrderDetails/OrderDetails'
 
 const tableData = [
     {
-        company: 'Musterfirma 1',
-        address: 'Musterstr. 1, 12345 Musterhausen',
-        category: 'Metall',
-        email: 'firma1@mustermail.de'
+        orderID: '123456',
+        date: '01.12.2016',
+        product: 'Produkt XYZ',
+        vendor: 'Mustermann',
+        number: '5',
+        price: '200€',
+        status: 'in Arbeit'
     },
     {
-        company: 'Musterfirma 2',
-        address: 'Musterstr. 2, 12345 Musterhausen',
-        category: 'Textil',
-        email: 'firma2@mustermail.de'
+        orderID: '456789',
+        date: '06.12.2016',
+        product: 'Schoko-Nikolaus',
+        vendor: 'Mustermann',
+        number: '100',
+        price: '150€',
+        status: 'offen'
     },
     {
-        company: 'Musterfirma 3',
-        address: 'Musterstr. 3, 12345 Musterhausen',
-        category: 'Holz',
-        email: 'firma3@mustermail.de'
-    },
-    {
-        company: 'Musterfirma 4',
-        address: 'Musterstr. 4, 12345 Musterhausen',
-        category: 'Handwerk',
-        email: 'firma4@mustermail.de'
+        orderID: '987654',
+        date: '17.12.2016',
+        product: 'Produkt ABC',
+        vendor: 'Mustermann',
+        number: '1',
+        price: '49,99€',
+        status: 'versandt'
     }
 ]
 
-export default class CompanySearch extends React.Component{
-
+export default class IncomingOrder extends React.Component {
     constructor(props) {
         super(props);
 
@@ -54,7 +56,7 @@ export default class CompanySearch extends React.Component{
         return(
             <MuiThemeProvider>
                 <div>
-                    <h1>Firmensuche - Ergebnisse für "Musterfirma"</h1>
+                    <h1>Eingegangene Bestellungen</h1>
                     <Table
                         height={this.state.height}
                         fixedHeader={this.state.fixedHeader}
@@ -68,10 +70,13 @@ export default class CompanySearch extends React.Component{
                             enableSelectAll={this.state.enableSelectAll}
                         >
                             <TableRow>
-                                <TableHeaderColumn>Firma</TableHeaderColumn>
-                                <TableHeaderColumn>Adresse</TableHeaderColumn>
-                                <TableHeaderColumn>Branche</TableHeaderColumn>
-                                <TableHeaderColumn>Email</TableHeaderColumn>
+                                <TableHeaderColumn>Bestell-Nr.</TableHeaderColumn>
+                                <TableHeaderColumn>Datum</TableHeaderColumn>
+                                <TableHeaderColumn>Produkt</TableHeaderColumn>
+                                <TableHeaderColumn>Händler</TableHeaderColumn>
+                                <TableHeaderColumn>Anzahl</TableHeaderColumn>
+                                <TableHeaderColumn>Preis gesamt</TableHeaderColumn>
+                                <TableHeaderColumn>Status</TableHeaderColumn>
                             </TableRow>
                         </TableHeader>
                         <TableBody
@@ -82,10 +87,13 @@ export default class CompanySearch extends React.Component{
                         >
                             {tableData.map( (row, index) => (
                                 <TableRow key={index} selected={row.selected}>
-                                    <TableRowColumn><Link to="/viewCompany">{row.company}</Link></TableRowColumn>
-                                    <TableRowColumn>{row.address}</TableRowColumn>
-                                    <TableRowColumn>{row.category}</TableRowColumn>
-                                    <TableRowColumn><a href="mailto:muster@firma.de">{row.email}<CommunicationEmail/></a></TableRowColumn>
+                                    <TableRowColumn><OrderDetails orderID={row.orderID}/></TableRowColumn>
+                                    <TableRowColumn>{row.date}</TableRowColumn>
+                                    <TableRowColumn>{row.product}</TableRowColumn>
+                                    <TableRowColumn><Link to="/viewUserProfile">{row.vendor}</Link></TableRowColumn>
+                                    <TableRowColumn>{row.number}</TableRowColumn>
+                                    <TableRowColumn>{row.price}</TableRowColumn>
+                                    <TableRowColumn>{row.status}</TableRowColumn>
                                 </TableRow>
                             ))}
                         </TableBody>
@@ -94,5 +102,4 @@ export default class CompanySearch extends React.Component{
             </MuiThemeProvider>
         );
     }
-
 }
