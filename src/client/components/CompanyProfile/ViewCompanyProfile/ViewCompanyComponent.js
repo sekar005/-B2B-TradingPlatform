@@ -96,7 +96,8 @@ export default class ViewCompanyComponent extends React.Component{
                         <p>Webseite: http://www.musterfirma.de</p>
                     </div>
                     <div style={styles.button}>
-                        <RaisedButton label="Bearbeiten"/>
+                        <RaisedButton label="Bearbeiten" containerElement={<Link to="/editCompany" />}
+                                      linkButton={true}/>
                     </div>
                     <div>
                         <h2 style={styles.headline}>Produkte</h2>
