@@ -2,6 +2,7 @@ import React from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Link } from 'react-router';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
+import OrderDetails from '../OrderDetails/OrderDetails';
 
 const tableData = [
     {
@@ -86,10 +87,10 @@ export default class OrderList extends React.Component{
                         >
                             {tableData.map( (row, index) => (
                                 <TableRow key={index} selected={row.selected}>
-                                    <TableRowColumn>{row.orderID}</TableRowColumn>
+                                    <TableRowColumn><OrderDetails orderID={row.orderID}/></TableRowColumn>
                                     <TableRowColumn>{row.date}</TableRowColumn>
                                     <TableRowColumn>{row.product}</TableRowColumn>
-                                    <TableRowColumn>{row.participant}</TableRowColumn>
+                                    <TableRowColumn><Link to={this.props.linkedSite}>{row.participant}</Link></TableRowColumn>
                                     <TableRowColumn>{row.number}</TableRowColumn>
                                     <TableRowColumn>{row.price}</TableRowColumn>
                                     <TableRowColumn>{row.status}</TableRowColumn>
