@@ -12,7 +12,8 @@ import { Link } from 'react-router';
 import ActionPowerSettingsNew from 'material-ui/svg-icons/action/power-settings-new';
 import ActionShoppingCart from 'material-ui/svg-icons/action/shopping-cart';
 import ActionSearch from 'material-ui/svg-icons/action/search';
-import ActionPageView from 'material-ui/svg-icons/action/pageview'
+import ActionPageView from 'material-ui/svg-icons/action/pageview';
+import PopoverMenuButton from './PopoverMenuButton';
 
 const styles = {
     adArea: {
@@ -50,12 +51,9 @@ export default class TemplateComponent extends React.Component {
                                         linkButton={true} primary={true} />
                             <FlatButton label="Meine Angebote" containerElement={<Link to="/offers" />}
                                         linkButton={true} primary={true} />
+                            <PopoverMenuButton/>
                         </ToolbarGroup>
                         <ToolbarGroup lastChild={true}>
-                            <DropDownMenu value={this.state.value} onChange={this.handleChange}>
-                                <MenuItem value={1} primaryText="Produkte" />
-                                <MenuItem value={2} primaryText="Bestellungen" />
-                            </DropDownMenu>
                             <TextField
                                 hintText="Produkte"
                                 floatingLabelText="Suche"

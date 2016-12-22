@@ -74,7 +74,8 @@ export default class CartComponent extends React.Component{
                         </TableBody>
                     </Table>
                     <div style={styles.button}>
-                        <RaisedButton label="Bestellen" />
+                        <RaisedButton label="Bestellen" containerElement={<Link to="/viewCompany" />}
+                                      linkButton={true} primary={true} />
                     </div>
                 </div>
             </MuiThemeProvider>
