@@ -115,7 +115,8 @@ export default class ViewCompanyComponent extends React.Component{
                                 <TableRow>
                                     <TableRowColumn><img src="src/images/ExampleImage.png" width="100px"/></TableRowColumn>
                                     <TableRowColumn>
-                                        <FlatButton label="Produkt 1"  primary={true} />
+                                        <FlatButton label="Produkt 1"  primary={true} containerElement={<Link to="/viewProductProfile" />}
+                                                    linkButton={true}/>
                                     </TableRowColumn>
                                     <TableRowColumn>Metall</TableRowColumn>
                                     <TableRowColumn>5€</TableRowColumn>
@@ -135,12 +136,12 @@ export default class ViewCompanyComponent extends React.Component{
                     </div>
 
                     <Dialog
-                        title="Löschen"
-                        actions={actions}
-                        modal={true}
-                        open={this.state.open}>
-                        Produkt wirklich löschen?
-                    </Dialog>
+                    title="Löschen"
+                    actions={actions}
+                    modal={true}
+                    open={this.state.open}>
+                    Produkt wirklich löschen?
+                </Dialog>
                 </div>
             </MuiThemeProvider>
         );

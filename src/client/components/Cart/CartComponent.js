@@ -64,7 +64,8 @@ export default class CartComponent extends React.Component{
                             <TableRow>
                                 <TableRowColumn><img src="src/images/ExampleImage.png" width="100px"/></TableRowColumn>
                                 <TableRowColumn>
-                                    <FlatButton label="Produkt 1"  primary={true} />
+                                    <FlatButton label="Produkt 1"  primary={true} containerElement={<Link to="/viewProductProfile" />}
+                                                linkButton={true} />
                                 </TableRowColumn>
                                 <TableRowColumn>Metall</TableRowColumn>
                                 <TableRowColumn>5€</TableRowColumn>
