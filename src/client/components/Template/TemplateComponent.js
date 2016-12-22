@@ -54,10 +54,6 @@ export default class TemplateComponent extends React.Component {
                             <PopoverMenuButton/>
                         </ToolbarGroup>
                         <ToolbarGroup lastChild={true}>
-                            <DropDownMenu value={this.state.value} onChange={this.handleChange}>
-                                <MenuItem value={1} primaryText="Produkte" />
-                                <MenuItem value={2} primaryText="Bestellungen" />
-                            </DropDownMenu>
                             <TextField
                                 hintText="Produkte"
                                 floatingLabelText="Suche"
