@@ -62,6 +62,18 @@ const tableData = [
     }
 ];
 
+const profileData = [
+    {
+        name: 'Musterfirma',
+        branch: 'Metall',
+        address: 'Musterstr. 1, 12345 Musterhausen',
+        email: 'mail@firma.de',
+        phone: '12345/6789',
+        fax: '12345/6789',
+        webpage: 'http://www.musterfirma.de'
+    }
+];
+
 export default class ViewCompanyComponent extends React.Component{
 
     state = {
@@ -96,13 +108,13 @@ export default class ViewCompanyComponent extends React.Component{
                 <div>
                     <div style={styles.picture}><img src="src/images/profile-icon.png" width="100px"/></div>
                     <div style={styles.justify}>
-                        <p>Firmenname: Musterfirma</p>
-                        <p>Branche: Metall</p>
-                        <p>Adresse: Musterstr. 1, 12345 Musterhausen</p>
-                        <p>Email: mail@firma.de</p>
-                        <p>Telefon: 12345/6789</p>
-                        <p>Fax: 12345/6789</p>
-                        <p>Webseite: http://www.musterfirma.de</p>
+                        <p>Firmenname: {profileData.name}</p>
+                        <p>Branche: {profileData.branch}</p>
+                        <p>Adresse: {profileData.address}</p>
+                        <p>Email: {profileData.email}</p>
+                        <p>Telefon: {profileData.phone}</p>
+                        <p>Fax: {profileData.fax}</p>
+                        <p>Webseite: {profileData.webpage}</p>
                     </div>
                     <div style={styles.button}>
                         <RaisedButton label="Bearbeiten" containerElement={<Link to="/editCompany" />}
