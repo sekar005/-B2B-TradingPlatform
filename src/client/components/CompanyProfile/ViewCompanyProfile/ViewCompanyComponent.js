@@ -53,6 +53,15 @@ const styles = {
     }
 };
 
+const tableData = [
+    {
+        image: <img src="src/images/ExampleImage.png" width="100px"/>,
+        product: 'Produkt 1',
+        category: 'Metall',
+        price: '5€'
+    }
+];
+
 export default class ViewCompanyComponent extends React.Component{
 
     state = {
@@ -113,25 +122,26 @@ export default class ViewCompanyComponent extends React.Component{
                                 </TableRow>
                             </TableHeader>
                             <TableBody displayRowCheckbox={false}>
-                                <TableRow>
-                                    <TableRowColumn><img src="src/images/ExampleImage.png" width="100px"/></TableRowColumn>
-                                    <TableRowColumn>
-                                        <FlatButton label="Produkt 1"  primary={true} containerElement={<Link to="/viewProductProfile" />}
-                                                    linkButton={true}/>
-                                    </TableRowColumn>
-                                    <TableRowColumn>Metall</TableRowColumn>
-                                    <TableRowColumn>5€</TableRowColumn>
-                                    <TableRowColumn>
-                                        <IconButton tooltip="SVG Icon" onClick={this.handleOpen}>
+                                {tableData.map( (row, index) => (
+                                    <TableRow key={index} selected={row.selected}>
+                                        <TableRowColumn>{row.image}</TableRowColumn>
+                                        <TableRowColumn>
+                                            <FlatButton label={row.product}  primary={true} containerElement={<Link to="/viewProductProfile" />}
+                                                        linkButton={true}/>
+                                        </TableRowColumn>
+                                        <TableRowColumn>{row.category}</TableRowColumn>
+                                        <TableRowColumn>{row.price}</TableRowColumn>
+                                        <TableRowColumn><IconButton tooltip="SVG Icon" onClick={this.handleOpen}>
                                             <ActionDelete />
                                         </IconButton>
-                                        <Link to="/editProduct">
-                                            <IconButton tooltip="SVG Icon">
-                                                <ContentCreate />
-                                            </IconButton>
-                                        </Link>
-                                    </TableRowColumn>
-                                </TableRow>
+                                            <Link to="/editProduct">
+                                                <IconButton tooltip="SVG Icon">
+                                                    <ContentCreate />
+                                                </IconButton>
+                                            </Link>
+                                        </TableRowColumn>
+                                    </TableRow>
+                                ))}
                             </TableBody>
                         </Table>
                     </div>
