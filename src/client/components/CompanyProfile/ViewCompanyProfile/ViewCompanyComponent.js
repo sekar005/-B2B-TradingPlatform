@@ -62,17 +62,15 @@ const tableData = [
     }
 ];
 
-const profileData = [
-    {
-        name: 'Musterfirma',
-        branch: 'Metall',
-        address: 'Musterstr. 1, 12345 Musterhausen',
-        email: 'mail@firma.de',
-        phone: '12345/6789',
-        fax: '12345/6789',
-        webpage: 'http://www.musterfirma.de'
-    }
-];
+const profileData = {
+    name: 'Musterfirma',
+    branch: 'Metall',
+    address: 'Musterstr. 1, 12345 Musterhausen',
+    email: 'mail@firma.de',
+    phone: '12345/6789',
+    fax: '12345/6789',
+    webpage: 'http://www.musterfirma.de'
+};
 
 export default class ViewCompanyComponent extends React.Component{
 
