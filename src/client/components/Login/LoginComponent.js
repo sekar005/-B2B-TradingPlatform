@@ -39,19 +39,22 @@ export default class LoginComponent extends React.Component{
         <div style={styles.center}>
             <h2 style={styles.headline}>B2B</h2>
             <Paper style={styles.paper} zDepth={1}>
-                <TextField
-                    hintText="Email Adresse"
-                    floatingLabelText="Email"
-                /><br/>
-                <TextField
-                    hintText="Passwort"
-                    floatingLabelText="Passwort"
-                    type="password"
-                /><br/>
+                <form role='form' action="/login" method="post">
+                    <TextField
+                        hintText="Email Adresse"
+                        floatingLabelText="Email"
+                        name="email"
+                    /><br/>
+                    <TextField
+                        hintText="Passwort"
+                        floatingLabelText="Passwort"
+                        type="password"
+                        name="password"
+                    /><br/>
                 <FlatButton label="Registrieren" containerElement={<Link to="/register" />}
                             linkButton={true} primary={true} />
-                <RaisedButton label="Login" style={styles.button} containerElement={<Link to="/viewCompany" />}
-                              linkButton={true}/>
+                <RaisedButton type="submit" label="Login" style={styles.button}/>
+                </form>
             </Paper>
         </div>
             </MuiThemeProvider>
