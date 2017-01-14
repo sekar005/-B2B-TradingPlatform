@@ -69,6 +69,7 @@ export default class RegisterComponent extends React.Component{
                         hintText="Passwort"
                         floatingLabelText="Passwort wiederholen"
                         type="password"
+                        name="doublePassword"
                     /><br/>
                     <RaisedButton type="submit" label="Registrieren" style={styles.button} primary={true}/>
                </form>

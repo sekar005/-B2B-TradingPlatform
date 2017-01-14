@@ -12,11 +12,21 @@ router.get('/users', function(req, res) {
 });
 
 router.post('/users', function(req, res) {
-    var newUser = new User({ email:req.body.email, password:req.body.password, name:req.body.name, firstName:req.body.firstName, address:req.body.address})
-    newUser.save(function (err, newUser) {
-        if (err) return console.error(err);
-    });
-    res.redirect('/');
+    if (req.body.password == req.body.doublePassword) {
+        var newUser = new User({
+            email: req.body.email,
+            password: req.body.password,
+            name: req.body.name,
+            firstName: req.body.firstName,
+            address: req.body.address
+        })
+        newUser.save(function (err, newUser) {
+            if (err) return console.error(err);
+        });
+        res.redirect('/');
+    } else {
+        res.redirect('/#/register');
+    }
 });
 
 router.get('/users/:id', function(req, res) {
@@ -26,11 +36,30 @@ router.get('/users/:id', function(req, res) {
     });
 });
 
+router.put('/users/:id', function(req, res) {
+    if (req.body.email != null && req.body.oldPassword != null && req.body.newPassword == req.body.newPasswordDouble) {
+        User.findOne({'email': req.params.id}, 'email password name firstName address', function (err, user) {
+            if (err) return handleError(err);
+            if (req.body.oldPassword == user.password) {
+                user.email = req.body.email;
+                res.cookie('userId', req.body.email);
+                user.name = req.body.name;
+                user.firstName = req.body.firstName;
+                user.address = req.body.address;
+                user.password = req.body.newPassword;
+                user.save();
+            }
+        });
+    }
+});
+
 router.post('/login', function(req, res) {
-    if (req.body.email != null || req.body.password != null) {
+    var password = req.body.password;
+    var email = req.body.email;
+    if (email != null && password != null) {
         User.findOne({'email': req.body.email}, 'email password', function (err, user) {
             if (err) return handleError(err);
-            if (req.body.password != null && req.body.password == user.password) {
+            if (password != null && user != null && password == user.password ) {
                 res.cookie('userId', user.email);
                 res.redirect('/#/viewUserProfile');
             } else {
