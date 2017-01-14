@@ -11,8 +11,25 @@ const styles = {
 }
 
 export default class ViewUserProfile extends React.Component{
-    componentWillMount() {
-        this.state =  { userId: cookie.load('userId') };
+
+    constructor() {
+        super();
+
+        this.state = {
+            data: {}
+        };
+    }
+
+    componentDidMount() {
+        var userId = cookie.load('userId');
+        fetch('/users/' + userId)
+            .then((response) => {
+                return response.json();
+            }).then((data) => {
+            this.setState( {data: data});
+        }).catch((e) => {
+            console.log(e);
+        });
     }
 
 
@@ -24,10 +41,9 @@ export default class ViewUserProfile extends React.Component{
                         <img src="src/images/profile-icon.png" width="100px"/>
                     </div>
                     <div>
-                        {this.state.userId}
-                        <h1>Max Mustermann</h1>
-                        <p>Adresse: Musterstraße 1, 44444 Musterhausen</p>
-                        <p>E-Mail: mail@mail.com</p>
+                        <h1>{this.state.data.firstName} {this.state.data.name}</h1>
+                        <p>Adresse: {this.state.data.address}</p>
+                        <p>E-Mail: {this.state.data.email}</p>
                         <RaisedButton label="Bearbeiten" containerElement={<Link to="/editUserProfile" />}
                                       linkButton={true} primary={true} />
                     </div>

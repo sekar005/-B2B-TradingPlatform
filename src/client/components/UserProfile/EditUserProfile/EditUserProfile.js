@@ -3,6 +3,7 @@ import {Link} from 'react-router';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import cookie from 'react-cookie';
 
 const styles = {
     form: {
@@ -22,6 +23,28 @@ const styles = {
 }
 
 export default class EditUserProfile extends React.Component{
+
+    constructor() {
+        super();
+
+        this.state = {
+            data: {}
+        };
+    }
+
+    componentDidMount() {
+        var userId = cookie.load('userId');
+        fetch('/users/' + userId)
+            .then((response) => {
+                return response.json();
+            }).then((data) => {
+            this.setState( {data: data});
+        }).catch((e) => {
+            console.log(e);
+        });
+    }
+
+
     render() {
         return (
             <MuiThemeProvider>
@@ -31,14 +54,14 @@ export default class EditUserProfile extends React.Component{
                     </div>
                     <div>
                         <div style={styles.box}>
-                            <label>Vorname: </label><TextField hintText="Vorname" defaultValue="Max" style={styles.field} />
-                            <label>Nachname: </label><TextField hintText="Nachname" defaultValue="Mustermann" style={styles.field} />
+                            <label>Vorname: </label><TextField hintText="Vorname" value={this.state.data.firstName} style={styles.field} />
+                            <label>Nachname: </label><TextField hintText="Nachname" value={this.state.data.name} style={styles.field} />
                         </div>
                         <div style={styles.box}>
-                            <label>Adresse: </label><TextField hintText="Adresse" defaultValue="Musterstraße 1, 44444 Musterhausen" style={styles.field} />
+                            <label>Adresse: </label><TextField hintText="Adresse" value={this.state.data.address} style={styles.field} />
                         </div>
                         <div style={styles.box}>
-                            <label>E-Mail: </label><TextField hintText="E-Mail" defaultValue="mail@mail.com" style={styles.field} />
+                            <label>E-Mail: </label><TextField hintText="E-Mail" value={this.state.data.email} style={styles.field} />
                         </div>
                         <div style={styles.box}>
                             <label>Altes Passwort: </label><TextField type="password" hintText="altes Passwort" style={styles.field} />

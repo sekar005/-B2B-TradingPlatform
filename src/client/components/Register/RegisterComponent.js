@@ -38,7 +38,7 @@ export default class RegisterComponent extends React.Component{
         <div style={styles.center}>
             <h2 style={styles.headline}>B2B</h2>
             <Paper style={styles.paper} zDepth={1}>
-                <form role='form' action="/register" method="post">
+                <form role='form' action="/users" method="post">
                     <TextField
                         hintText="Email Adresse"
                         floatingLabelText="Email"

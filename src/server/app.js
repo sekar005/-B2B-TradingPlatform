@@ -9,7 +9,7 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
-var routes = require('./routes/users');
+var userRoutes = require('./routes/users');
 
 
 const app = express();
@@ -24,10 +24,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/', routes);
+app.use('/', userRoutes);
 
-// passport config
-var Account = require('./models/user');
 
 // mongoose
 mongoose.Promise = global.Promise;
