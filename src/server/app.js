@@ -6,10 +6,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
 
 var userRoutes = require('./routes/users');
+var loginRoutes = require('./routes/login');
 
 
 const app = express();
@@ -24,7 +23,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/', userRoutes);
+app.use('/users', userRoutes);
+app.use('/', loginRoutes);
 
 
 // mongoose
