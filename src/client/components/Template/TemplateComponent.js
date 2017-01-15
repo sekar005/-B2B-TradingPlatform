@@ -61,7 +61,7 @@ export default class TemplateComponent extends React.Component {
                             <Link to="/productSearch"><ActionSearch /></Link>
                             <Link to="/companySearch"><ActionPageView/></Link>
                             <Link to="/cart"><ActionShoppingCart /></Link>
-                            <Link to="/logout"><ActionPowerSettingsNew /></Link>
+                            <Link to="/"><ActionPowerSettingsNew /></Link>
                         </ToolbarGroup>
                     </Toolbar>
                  </MuiThemeProvider>
