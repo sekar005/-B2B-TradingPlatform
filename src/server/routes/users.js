@@ -7,7 +7,7 @@ var router = express.Router();
 router.get('/users', function(req, res) {
     User.find({},'email password name firstName address',function (err, users) {
         if (err) return handleError(err);
-        res.send(users);
+        res.json(users);
     });
 });
 
@@ -30,7 +30,7 @@ router.post('/users', function(req, res) {
 });
 
 router.get('/users/:id', function(req, res) {
-    User.findOne({ 'email': req.params.id },'email password name firstName address',function (err, user) {
+    User.findById(req.params.id,'email password name firstName address',function (err, user) {
         if (err) return handleError(err);
         res.json(user);
     });
@@ -38,7 +38,7 @@ router.get('/users/:id', function(req, res) {
 
 router.put('/users/:id', function(req, res) {
     if (req.body.email != null && req.body.oldPassword != null && req.body.newPassword == req.body.newPasswordDouble) {
-        User.findOne({'email': req.params.id}, 'email password name firstName address', function (err, user) {
+        User.findById(req.params.id, 'email password name firstName address', function (err, user) {
             if (err) return handleError(err);
             if (req.body.oldPassword == user.password) {
                 user.email = req.body.email;
@@ -53,6 +53,13 @@ router.put('/users/:id', function(req, res) {
     }
 });
 
+router.delete('/users/:id', function(req, res) {
+    User.findByIdAndRemove(req.params.id,'email password name firstName address',function (err, user) {
+        if (err) return handleError(err);
+        res.json(user);
+    });
+});
+
 router.post('/login', function(req, res) {
     var password = req.body.password;
     var email = req.body.email;
@@ -60,7 +67,7 @@ router.post('/login', function(req, res) {
         User.findOne({'email': req.body.email}, 'email password', function (err, user) {
             if (err) return handleError(err);
             if (password != null && user != null && password == user.password ) {
-                res.cookie('userId', user.email);
+                res.cookie('userId', user.id);
                 res.redirect('/#/viewUserProfile');
             } else {
                 res.redirect('/');
