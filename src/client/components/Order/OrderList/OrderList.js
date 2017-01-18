@@ -35,7 +35,6 @@ const tableData = [
 ]
 
 export default class OrderList extends React.Component{
-
     constructor(props) {
         super(props);
 
@@ -85,12 +84,12 @@ export default class OrderList extends React.Component{
                             showRowHover={this.state.showRowHover}
                             stripedRows={this.state.stripedRows}
                         >
-                            {tableData.map( (row, index) => (
+                            {this.props.tableData.map( (row, index) => (
                                 <TableRow key={index} selected={row.selected}>
-                                    <TableRowColumn><OrderDetails orderID={row.orderID}/></TableRowColumn>
+                                    <TableRowColumn><OrderDetails orderNo={row.orderNo}/></TableRowColumn>
                                     <TableRowColumn>{row.date}</TableRowColumn>
                                     <TableRowColumn>{row.product}</TableRowColumn>
-                                    <TableRowColumn><Link to={this.props.linkedSite}>{row.participant}</Link></TableRowColumn>
+                                    <TableRowColumn><Link to={this.props.linkedSite}>{row.company}</Link></TableRowColumn>
                                     <TableRowColumn>{row.number}</TableRowColumn>
                                     <TableRowColumn>{row.price}</TableRowColumn>
                                     <TableRowColumn>{row.status}</TableRowColumn>

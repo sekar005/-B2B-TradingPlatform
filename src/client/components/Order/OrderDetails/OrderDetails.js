@@ -30,7 +30,7 @@ export default class OrderDetails extends React.Component {
 
         return (
             <div>
-                <RaisedButton label={this.props.orderID} onMouseDown={this.handleOpen} />
+                <RaisedButton label={this.props.orderNo} onMouseDown={this.handleOpen} />
                 <Dialog
                     title="Bestelldetails ID: 123456"
                     actions={actions}

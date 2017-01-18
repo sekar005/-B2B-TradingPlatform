@@ -9,6 +9,7 @@ var mongoose = require('mongoose');
 
 var userRoutes = require('./routes/users');
 var loginRoutes = require('./routes/login');
+var orderRoutes = require('./routes/orders');
 
 
 const app = express();
@@ -25,6 +26,7 @@ app.use(cookieParser());
 
 app.use('/users', userRoutes);
 app.use('/', loginRoutes);
+app.use('/orders', orderRoutes);
 
 
 // mongoose
