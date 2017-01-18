@@ -7,14 +7,21 @@ var Order = require('../models/order');
 var router = express.Router();
 
 router.get('/', function(req, res) {
-    Order.find({},'orderNo date product company customer number price status',function (err, orders) {
+    Order.find({},'orderNo date product company userId number price status',function (err, orders) {
+        if (err) return handleError(err);
+        res.json(orders);
+    });
+});
+
+router.get('/users/:id', function(req, res) {
+    Order.find({userId: req.params.id},'orderNo date product company userId number price status',function (err, orders) {
         if (err) return handleError(err);
         res.json(orders);
     });
 });
 
 router.get('/:id', function(req, res) {
-    Order.findById(req.params.id,'orderNo date product company customer number price status',function (err, order) {
+    Order.findById(req.params.id,'orderNo date product company userId number price status',function (err, order) {
         if (err) return handleError(err);
         res.json(order);
     });
@@ -22,13 +29,14 @@ router.get('/:id', function(req, res) {
 
 router.post('/', function(req, res) {
         var newOrder = new Order({
-            orderNo: req.body.orderNo,
-            date: req.body.date,
-            product: req.body.product,
-            company: req.body.company,
-            number: req.body.number,
-            price: req.body.price,
-            status: req.body.status
+            orderNo:    req.body.orderNo,
+            date:       req.body.date,
+            product:    req.body.product,
+            company:    req.body.company,
+            userId:     req.body.userId,
+            number:     req.body.number,
+            price:      req.body.price,
+            status:     req.body.status
         })
         newOrder.save(function (err, newOrder) {
             if (err) return console.error(err);
@@ -40,23 +48,24 @@ router.post('/', function(req, res) {
 router.put('/:id', function(req, res) {
     if (req.body.orderNo != null && req.body.date != null && req.body.productId != null && req.body.company != null && req.body.customer != null &&
         req.body.number != null && req.body.price != null && req.body.state != null) {
-        Order.findById(req.params.id, 'orderNo date product company customer number price status', function (err, order) {
+        Order.findById(req.params.id, 'orderNo date product company userId number price status', function (err, order) {
             if (err) return handleError(err);
-            order.orderNo = req.body.orderNo,
-            order.date = req.body.date,
-            order.product = req.body.product,
-            order.company = req.body.company,
-            order.customer = req.body.customer,
-            order.number = req.body.number,
-            order.price = req.body.price,
-            order.status = req.body.status
+            order.orderNo   = req.body.orderNo,
+            order.date      = req.body.date,
+            order.product   = req.body.product,
+            order.company   = req.body.company,
+            order.customer  = req.body.customer,
+            order.userId    = req.body.userId,
+            order.number    = req.body.number,
+            order.price     = req.body.price,
+            order.status    = req.body.status
             order.save();
         });
     }
 });
 
 router.delete('/:id', function(req, res) {
-    Order.findByIdAndRemove(req.params.id,'orderNo date product company customer number price status',function (err, order) {
+    Order.findByIdAndRemove(req.params.id,'orderNo date product company userId number price status',function (err, order) {
         if (err) return handleError(err);
         res.json(order);
     });

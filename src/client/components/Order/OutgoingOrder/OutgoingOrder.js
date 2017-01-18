@@ -1,6 +1,7 @@
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import OrderList from '../OrderList/OrderList';
+import cookie from 'react-cookie';
 
 export default class OutgoingOrder extends React.Component {
     constructor() {
@@ -22,7 +23,8 @@ export default class OutgoingOrder extends React.Component {
     }
 
     componentDidMount() {
-        fetch('/orders')
+        var userId = cookie.load('userId');
+        fetch('/orders/users/' + userId)
             .then((response) => {
                 return response.json();
             }).then((data) => {
