@@ -40,22 +40,27 @@ export default class AddProductComponent extends React.Component{
             <h2 style={styles.headline}>B2B</h2>
             <Paper style={styles.paper} zDepth={1}>
                 <RaisedButton label="Bild hochladen" style={styles.button}/>
+                <form role='form' action="/products" method="post">
                 <TextField
                     hintText="Produktname"
                     floatingLabelText="Name"
+                    name="product"
                 /><br/>
                 <TextField
                     hintText="Kategorie"
                     floatingLabelText="Kategorie"
+                    name="category"
                 /><br/>
                 <TextField
                     hintText="Preis"
                     floatingLabelText="Preis"
+                    name="price"
                 /><br/>
                 <FlatButton label="Abbrechen" containerElement={<Link to="/viewCompany" />}
                             linkButton={true} primary={true} />
-                <RaisedButton label="OK" style={styles.button} containerElement={<Link to="/viewCompany" />}
-                              linkButton={true}/>
+                <RaisedButton label="OK" style={styles.button}
+                              linkButton={true} type="submit"/>
+                </form>
             </Paper>
         </div>
             </MuiThemeProvider>

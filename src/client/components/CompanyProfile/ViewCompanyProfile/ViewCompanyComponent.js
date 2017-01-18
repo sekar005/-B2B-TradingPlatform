@@ -55,7 +55,6 @@ const styles = {
 
 const tableData = [
     {
-        image: <img src="src/images/ExampleImage.png" width="100px"/>,
         product: 'Produkt 1',
         category: 'Metall',
         price: '5€'
@@ -74,9 +73,14 @@ const profileData = {
 
 export default class ViewCompanyComponent extends React.Component{
 
-    state = {
-        open: false,
-    };
+    constructor() {
+        super();
+
+        this.state = {
+            data: [],
+            open: false
+        };
+    }
 
     handleOpen = () => {
         this.setState({open: true});
@@ -85,6 +89,18 @@ export default class ViewCompanyComponent extends React.Component{
     handleClose = () => {
         this.setState({open: false});
     };
+
+    componentDidMount() {
+        fetch('/products')
+            .then((response) => {
+                return response.json();
+            }).then((data) => {
+            this.setState( {data: data});
+            console.log(data);
+        }).catch((e) => {
+            console.log(e);
+        });
+    }
 
     render() {
         const actions = [
@@ -132,18 +148,19 @@ export default class ViewCompanyComponent extends React.Component{
                                 </TableRow>
                             </TableHeader>
                             <TableBody displayRowCheckbox={false}>
-                                {tableData.map( (row, index) => (
+                                {this.state.data.map( (row, index) => (
                                     <TableRow key={index} selected={row.selected}>
-                                        <TableRowColumn>{row.image}</TableRowColumn>
+                                        <TableRowColumn><img src="src/images/ExampleImage.png" width="100px"/></TableRowColumn>
                                         <TableRowColumn>
                                             <FlatButton label={row.product}  primary={true} containerElement={<Link to="/viewProductProfile" />}
                                                         linkButton={true}/>
                                         </TableRowColumn>
                                         <TableRowColumn>{row.category}</TableRowColumn>
                                         <TableRowColumn>{row.price}</TableRowColumn>
-                                        <TableRowColumn><IconButton tooltip="SVG Icon" onClick={this.handleOpen}>
-                                            <ActionDelete />
-                                        </IconButton>
+                                        <TableRowColumn>
+                                            <IconButton tooltip="SVG Icon" onClick={this.handleOpen}>
+                                                <ActionDelete />
+                                            </IconButton>
                                             <Link to="/editProduct">
                                                 <IconButton tooltip="SVG Icon">
                                                     <ContentCreate />

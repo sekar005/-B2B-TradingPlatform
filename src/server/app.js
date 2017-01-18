@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 var userRoutes = require('./routes/users');
+var productRoutes = require('./routes/products');
 var loginRoutes = require('./routes/login');
 var orderRoutes = require('./routes/orders');
 
@@ -25,6 +26,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/users', userRoutes);
+app.use('/products', productRoutes);
 app.use('/', loginRoutes);
 app.use('/orders', orderRoutes);
 
